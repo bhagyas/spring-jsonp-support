@@ -10,6 +10,8 @@ Adding jsonp support for Spring MVC Controllers
 
 This project contains artifacts you can use for adding support for jsonp in your Spring MVC Controllers.
 
+You can also use this in your Spring Roo projects to add jsonp support for controllers generated using `@RooJson` .
+
 For more information, please read the following article.
 
 http://jpgmr.wordpress.com/2010/07/28/tutorial-implementing-a-servlet-filter-for-jsonp-callback-with-springs-delegatingfilterproxy/
