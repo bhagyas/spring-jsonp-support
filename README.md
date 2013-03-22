@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Adding jsonp support for Spring MVC Controllers
 ===================================================
 
@@ -56,3 +57,9 @@ This code contains no warranty. Use it at your own risk.
 If you find any issues, please fork the project, fix it and do a pull request.
 
 With love.
+=======
+spring-jsonp-support
+====================
+
+Adds support for jsonp requests for Spring MVC.
+>>>>>>> 0b7b557c0bd85f79e749ae80a5f1e0b407945d9c
