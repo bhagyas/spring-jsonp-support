@@ -13,12 +13,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JsonpCallbackFilter implements Filter {
 
-    private static Log log = LogFactory.getLog(JsonpCallbackFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(JsonpCallbackFilter.class);
 
     public void init(FilterConfig fConfig) throws ServletException {}
 
@@ -27,32 +27,22 @@ public class JsonpCallbackFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         @SuppressWarnings("unchecked")
-        Map<String, String[]> parms = httpRequest.getParameterMap();
+		Map<String, String[]> parms = httpRequest.getParameterMap();
 
-        if(parms.containsKey("callback")) {
+        String callback = null;
+        if(parms.containsKey("callback") && null != (callback = parms.get("callback")[0])) {
             if(log.isDebugEnabled())
-                log.debug("Wrapping response with JSONP callback '" + parms.get("callback")[0] + "'");
-
+                log.debug("Wrapping response with JSONP callback '" + callback + "'");
             OutputStream out = httpResponse.getOutputStream();
-
-            GenericResponseWrapper wrapper = new GenericResponseWrapper(httpResponse);
-
-            chain.doFilter(request, wrapper);
-
-            out.write(new String(parms.get("callback")[0] + "(").getBytes());
-            out.write(wrapper.getData());
+            out.write(new String(callback + "(").getBytes());
+            chain.doFilter(request, httpResponse);
             out.write(new String(");").getBytes());
-
-            wrapper.setContentType("text/javascript;charset=UTF-8");
-
-            out.close();
+            
+            httpResponse.setContentType("text/javascript;charset=UTF-8");
         } else {
             chain.doFilter(request, response);
         }
     }
-
-
-
 
     public void destroy() {}
 }
