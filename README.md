@@ -10,7 +10,7 @@ Adding jsonp support for Spring MVC Controllers
 
 This project contains artifacts you can use for adding support for jsonp in your Spring MVC Controllers.
 
-You can also use this in your Spring Roo projects to add jsonp support for controllers generated using `@RooJson` .
+You can also use this in your Spring Roo projects to add jsonp support for controllers generated using `@RooJson` and `@RooWebJson` .
 
 For more information on how this works, please read the following article.
 
@@ -26,7 +26,7 @@ Getting Started
 
 3. Add the following dependency to your project.
 
-    	<dependency>
+        <dependency>
 			<groupId>com.intera.util</groupId>
 			<artifactId>spring-jsonp-support</artifactId>
 			<version>0.0.1</version>
@@ -57,7 +57,13 @@ Getting Started
 
 Example : http://localhost:8080/mylistingsapp/listings.json?callback=myFunction
 
-
+Version History
+=====
+**8 September 2013**
+- Version bumped to version 0.0.2
+- Improved logging
+- Fixed issue #2 response truncated for callback function name length.
+- Thanks to code contributions by wenin819 (https://github.com/wenin819)
 
 Disclaimer
 ==========
