@@ -29,7 +29,7 @@ Getting Started
         <dependency>
 			<groupId>com.intera.util</groupId>
 			<artifactId>spring-jsonp-support</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2</version>
 		</dependency>
 
 4. Modify and add the following lines to each of the following files.
