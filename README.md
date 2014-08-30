@@ -59,6 +59,11 @@ Example : http://localhost:8080/mylistingsapp/listings.json?callback=myFunction
 
 Version History
 =====
+
+**30 August 2014**
+- Project code migrated to Scala. Code currently available on Scala branch.
+- The code will eventually take over the Java implementation.  
+
 **8 September 2013**
 - Version bumped to version 0.0.2
 - Improved logging
